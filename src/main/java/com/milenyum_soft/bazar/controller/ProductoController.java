@@ -6,6 +6,7 @@ import com.milenyum_soft.bazar.service.IProductoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -57,6 +58,23 @@ public class ProductoController {
         System.out.println(producEdti.toString());
         return "Producto Antiguo: " +  nombreAntiguo +  "  Producto Editado : " + producEdti.toString() ;
         }
+
+
+        //PRODUCTO CANTIDAD DISPONIBLE SEA MENOR 5
+
+    @GetMapping("productos/falta_stock")
+    public List<Producto> faltaStock() {
+        List<Producto> listaProductos = productoService.getProductos();
+        List<Producto> listaCantidadDisponible = new ArrayList<Producto>();
+        for (Producto producto : listaProductos) {
+
+            if (producto.getCantidad_disponible() < 5) {
+                listaCantidadDisponible.add(producto);
+            }
+        }
+
+        return listaCantidadDisponible;
+    }
 
 
 }

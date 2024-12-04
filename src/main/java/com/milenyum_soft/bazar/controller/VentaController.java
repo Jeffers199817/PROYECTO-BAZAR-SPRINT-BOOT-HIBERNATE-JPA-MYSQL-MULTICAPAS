@@ -63,4 +63,14 @@ public class VentaController {
 
     }
 
+    //OBTENER LISTA DE PRODUCTOS DE UNA DETERMINADA VENTA
+    @GetMapping("ventas/productos/{codigo_venta}")
+    public List<Producto> findByProducto(@PathVariable Long codigo_venta ){
+
+        Venta vent  = ventaService.findById(codigo_venta);
+        List<Producto> listaDeProductos= vent.getListaProducto();
+        return listaDeProductos;
+    }
+
 }
+
