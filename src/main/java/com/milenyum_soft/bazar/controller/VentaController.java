@@ -72,5 +72,27 @@ public class VentaController {
         return listaDeProductos;
     }
 
+    // SUMATORIA DEL MONTO CANTIDAD TOTAL DE VENTAS DE UN DETERMINADO DIA
+
+    @GetMapping("ventas/fecha/{fecha_venta}")
+    public String getAllVentas(@PathVariable String fecha_venta ){
+       List<Venta> listaVentas=  ventaService.findAll();
+       double sumatoriaMonto =0;
+       int ventasTotales=0;
+       LocalDate fechaVentaParam = LocalDate.parse(fecha_venta);
+
+       for(Venta venta: listaVentas){
+       if(venta.getFecha_venta().equals(fechaVentaParam)){
+
+          sumatoriaMonto+= venta.getTotal();
+          ventasTotales++;
+
+
+       }
+       }
+    return "Sumatoria del monto es : " + sumatoriaMonto + "Ventas totales es: " + ventasTotales;
+
+    }
+
 }
 
