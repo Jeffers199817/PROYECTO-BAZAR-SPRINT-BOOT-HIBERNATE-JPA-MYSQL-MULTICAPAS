@@ -44,7 +44,7 @@ public class ClienteController {
     @PutMapping("clientes/editar/{id_cliente}")
     public String editCliente(@PathVariable Long id_cliente, @RequestBody Cliente cliente) {
 
-        Cliente client1 = clienteService.getCliente( id_cliente );
+        Cliente client1 = clienteService.getCliente( id_cliente);
         String nombrecl= client1.getNombre();
         String apellido= client1.getApellido();
         String dni= client1.getDni();
