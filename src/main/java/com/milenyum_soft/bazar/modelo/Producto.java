@@ -1,9 +1,6 @@
 package com.milenyum_soft.bazar.modelo;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -23,6 +20,10 @@ public class Producto {
     private String marca;
     private double costo;
     private double cantidad_disponible;
+
+    @ManyToOne
+    @JoinColumn(name="codigoVenta" , referencedColumnName = "codigo_venta")
+    private Venta unaVenta;
 
 
 
