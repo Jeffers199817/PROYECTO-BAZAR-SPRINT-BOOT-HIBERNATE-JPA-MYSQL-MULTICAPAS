@@ -16,7 +16,7 @@ public class ProductoService implements IProductoService{
     @Override
     public Producto getProducto(Long codigo) {
 
-        return   productoRepository.getById(codigo);
+        return  productoRepository.findById(codigo).get();
     }
 
     @Override
