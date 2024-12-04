@@ -1,5 +1,6 @@
 package com.milenyum_soft.bazar.modelo;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -20,7 +21,7 @@ public class Venta {
     private Long codigo_venta;
     private LocalDate fecha_venta;
     private Double total;
-    @OneToMany(mappedBy = "unaVenta")
+    @OneToMany
     private List<Producto> listaProducto;
     @OneToOne
     private Cliente unCliente;

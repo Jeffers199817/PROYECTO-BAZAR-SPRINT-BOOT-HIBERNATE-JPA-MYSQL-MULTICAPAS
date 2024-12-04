@@ -21,10 +21,6 @@ public class Producto {
     private double costo;
     private double cantidad_disponible;
 
-    @ManyToOne
-    @JoinColumn(name="codigoVenta" , referencedColumnName = "codigo_venta")
-    private Venta unaVenta;
-
 
 
 }
