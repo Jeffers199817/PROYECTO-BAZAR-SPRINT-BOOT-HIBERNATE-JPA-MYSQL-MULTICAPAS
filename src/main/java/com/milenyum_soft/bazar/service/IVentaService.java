@@ -1,5 +1,6 @@
 package com.milenyum_soft.bazar.service;
 
+import com.milenyum_soft.bazar.dto.ClienteProductoVentaDTO;
 import com.milenyum_soft.bazar.modelo.Venta;
 import org.springframework.data.jpa.repository.JpaRepository;
 
@@ -18,4 +19,8 @@ public interface IVentaService  {
     public void deleteVenta(Long id);
     //EDITAR VENTA
     public Venta editVenta(Venta venta);
+
+    //OBTENER EJERCICIO 7
+    public ClienteProductoVentaDTO findVentaById( );
+
 }

@@ -94,5 +94,12 @@ public class VentaController {
 
     }
 
+
+    @GetMapping("ventas/mayor_venta")
+    public String getMayorVenta(){
+       return "La venta con el monto más alto es: " + ventaService.findVentaById().toString();
+
+    }
+
 }
 

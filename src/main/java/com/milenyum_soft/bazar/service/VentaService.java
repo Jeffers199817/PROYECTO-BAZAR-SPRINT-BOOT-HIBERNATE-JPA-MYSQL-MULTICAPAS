@@ -1,6 +1,7 @@
 package com.milenyum_soft.bazar.service;
 
 
+import com.milenyum_soft.bazar.dto.ClienteProductoVentaDTO;
 import com.milenyum_soft.bazar.modelo.Producto;
 import com.milenyum_soft.bazar.modelo.Venta;
 import com.milenyum_soft.bazar.repository.IVentaRepository;
@@ -57,5 +58,46 @@ public class VentaService implements IVentaService {
 
 
         return vent;
+    }
+
+    @Override
+    public ClienteProductoVentaDTO findVentaById() {
+
+     List<Venta>  listaVentas =  this.findAll();
+        double centinela= 0;
+        Venta vent = null;
+
+     for(Venta venta : listaVentas) {
+         System.out.println("Lista de venta: " + venta.getTotal());
+
+         if (venta.getTotal() > centinela) {
+
+
+             centinela = venta.getTotal();
+             System.out.println("centinela : " + centinela);
+              vent= venta;
+
+         } else {
+             System.out.println("es menor : " + venta.getTotal() + "que centinela: " + centinela);
+
+         }
+
+
+     }
+        System.out.println("LLegue aqui");
+
+        ClienteProductoVentaDTO ventaDTO = new ClienteProductoVentaDTO();
+
+        if (vent != null) {
+            ventaDTO.setCodigo_venta(vent.getCodigo_venta());
+            ventaDTO.setTotal(vent.getTotal());
+            ventaDTO.setCantidadDeProductos(vent.getListaProducto() != null ? vent.getListaProducto().size() : 0);
+            ventaDTO.setNombreCliente(vent.getUnCliente() != null ? vent.getUnCliente().getNombre() : "Desconocido");
+            ventaDTO.setApellidoCliente(vent.getUnCliente() != null ? vent.getUnCliente().getApellido() : "Desconocido");
+        } else {
+            System.out.println("No se encontró ninguna venta");
+
+        }
+        return ventaDTO;
     }
 }
