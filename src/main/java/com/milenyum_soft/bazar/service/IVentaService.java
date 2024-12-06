@@ -23,4 +23,5 @@ public interface IVentaService  {
     //OBTENER EJERCICIO 7
     public ClienteProductoVentaDTO findVentaById( );
 
+    public ClienteProductoVentaDTO menorVentaById();
 }

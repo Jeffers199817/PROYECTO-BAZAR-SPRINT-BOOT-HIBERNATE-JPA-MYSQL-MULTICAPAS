@@ -101,5 +101,9 @@ public class VentaController {
 
     }
 
+    @GetMapping("ventas/menor_venta")
+    public String getMenorVenta(){
+        return  "La venta con el monto menor es" + ventaService.menorVentaById().toString();
+    }
 }
 

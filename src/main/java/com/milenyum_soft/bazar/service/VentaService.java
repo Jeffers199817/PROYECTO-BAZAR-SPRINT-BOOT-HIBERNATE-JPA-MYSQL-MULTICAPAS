@@ -100,4 +100,8 @@ public class VentaService implements IVentaService {
         }
         return ventaDTO;
     }
+
+    @Override
+    public ClienteProductoVentaDTO menorVentaById() {
+    }
 }
