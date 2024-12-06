@@ -38,6 +38,7 @@ public class ClienteController {
     public String deleteCliente(@PathVariable Long id_cliente) {
 
         clienteService.deleteCliente( id_cliente );
+        System.out.println("Cliente eliminado exitosamente");
         return "Cliente eliminado exitosamente";
     }
 
