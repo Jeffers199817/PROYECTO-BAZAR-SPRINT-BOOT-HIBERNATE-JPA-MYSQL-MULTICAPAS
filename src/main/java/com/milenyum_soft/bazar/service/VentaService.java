@@ -96,6 +96,7 @@ public class VentaService implements IVentaService {
             ventaDTO.setApellidoCliente(vent.getUnCliente() != null ? vent.getUnCliente().getApellido() : "Desconocido");
         } else {
             System.out.println("No se encontró ninguna venta");
+            System.out.println();
 
         }
         return ventaDTO;
@@ -103,5 +104,23 @@ public class VentaService implements IVentaService {
 
     @Override
     public ClienteProductoVentaDTO menorVentaById() {
+
+        List<Venta>  listaVentas =  this.findAll();
+        double centinela = 0;
+        ClienteProductoVentaDTO ventaMenorDto = null;
+        for(Venta venta : listaVentas) {
+            System.out.println("Lista de venta: " + venta.getTotal());
+            if (venta.getTotal() > centinela) {
+                centinela = venta.getTotal();
+                System.out.println("centinela : " + centinela);
+                ventaMenorDto= venta;
+
+            }
+
+        }
+
+
+
+        return ventaMenorDto;
     }
 }
