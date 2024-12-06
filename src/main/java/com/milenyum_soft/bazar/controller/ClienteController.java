@@ -52,6 +52,7 @@ public class ClienteController {
 
         Cliente client2 = clienteService.updateCliente(cliente);
         System.out.println(client2.toString());
+        System.out.println("Buenas noches donde estás;");
 
         return "Cliente editado exitosamente "  + "Cliente antiguo: " + nombrecl + " Cliente editado:  " + client2.toString();
 
