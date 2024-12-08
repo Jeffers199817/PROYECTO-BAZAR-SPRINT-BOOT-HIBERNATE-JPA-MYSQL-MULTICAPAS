@@ -103,17 +103,17 @@ public class VentaService implements IVentaService {
     }
 
     @Override
-    public ClienteProductoVentaDTO menorVentaById() {
+    public Venta menorVentaById() {
 
         List<Venta>  listaVentas =  this.findAll();
         double centinela = 0;
-        ClienteProductoVentaDTO ventaMenorDto = null;
+        Venta ventaMenorDto = null;
         for(Venta venta : listaVentas) {
             System.out.println("Lista de venta: " + venta.getTotal());
             if (venta.getTotal() > centinela) {
                 centinela = venta.getTotal();
                 System.out.println("centinela : " + centinela);
-                ventaMenorDto= venta;
+                ventaMenorDto = venta;
 
             }
 
@@ -121,6 +121,6 @@ public class VentaService implements IVentaService {
 
 
 
-        return ventaMenorDto;
+        return  ventaMenorDto;
     }
 }
